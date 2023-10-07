@@ -1,32 +1,55 @@
-import React from "react";
-import InputSection from "../InputSection/InputSection";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Navbar() {
+  const [myStyle, setMyStyle] = useState({
+    backgroundColor: "white",
+    color: "black",
+  });
+
+  const DarkModeAndLightHandler = () => {
+    if (myStyle.color === "white") {
+      setMyStyle({
+        backgroundColor: "white",
+        color: "black",
+      });
+    } else {
+      setMyStyle({
+        backgroundColor: "#445760",
+        color: "white",
+      });
+    }
+  };
+
   return (
     <>
-      <nav
-        className="navbar navbar-expand-lg navbar-light bg-light"
-        style={{ padding: 18 }}
-      >
-        <a className="navbar-brand" href="#">
+      <div style={myStyle} className="navbar navbar-expand-lg">
+        <Link style={myStyle} className="navbar-brand" to="/">
           Text Utils
-        </a>
+        </Link>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item active">
-              <a className="nav-link" href="#">
+              <Link style={myStyle} className="nav-link" to="/">
                 Home
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <Link style={myStyle} className="nav-link" to="/about">
                 About
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
-      </nav>
-      <InputSection />
+        <div className="form-check form-switch">
+          <input
+            onClick={DarkModeAndLightHandler}
+            className="form-check-input"
+            type="checkbox"
+            role="switch"
+          />
+        </div>
+      </div>
     </>
   );
 }

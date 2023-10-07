@@ -12,3 +12,9 @@
   margin-right: 10px;
   margin-bottom: 10px;
 }
+.navbar {
+  padding: 18px;
+}
+body {
+  background: #f8f9fa;
+}
