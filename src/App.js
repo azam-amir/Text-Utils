@@ -20,6 +20,15 @@ function App() {
               }
             />
             <Route
+              path="/Text-Utils"
+              element={
+                <div>
+                  <Navbar />
+                  <InputSection />
+                </div>
+              }
+            />
+            <Route
               path="/about"
               element={
                 <div>
